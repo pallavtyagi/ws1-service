@@ -21,9 +21,9 @@ public class DBConfigurations {
 
 	@Bean
 	public  MongoDbFactory getMongoDbFactory() throws Exception {
-      //  return new SimpleMongoDbFactory(new MongoClient("localhost",9999), "shoutservice");
+       return new SimpleMongoDbFactory(new MongoClient("localhost",9999), "shoutservice");
  //return new SimpleMongoDbFactory(new MongoClient(new MongoClientURI("mongodb://admin:9EeZrdmzi4EL@<hostname>OPENSHIFT_MONGODB_DB_HOST:OPENSHIFT_MONGODB_DB_PORT")),"ws1");
-		return new SimpleMongoDbFactory(new MongoClient(new MongoClientURI(System.getenv("OPENSHIFT_MONGODB_DB_URL"))),"ws1");     
+		//return new SimpleMongoDbFactory(new MongoClient(new MongoClientURI(System.getenv("OPENSHIFT_MONGODB_DB_URL"))),"ws1");     
     }
  
 	@Bean
