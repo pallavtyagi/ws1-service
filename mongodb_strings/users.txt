@@ -1,0 +1,26 @@
+User 
+
+db.users.insert({
+"title":"Mr",
+"userid":"919599319533"
+"firstname":"Pallav",
+"lastname":"Tyagi",
+"phone":"9599319533",
+"countrycode":"91",
+"email":"tyagi.pallav1601@gmail.com",
+"phoneverify":"Y",
+"emialverify":"Y",
+"password":"abc123"
+})
+
+private String title;
+private String firstName;
+private String lastName;
+private String phone;
+private String phoneVerify;
+private String email;
+private String emialVerify;
+private String countryCode;
+
+
+db.users.find({"userid":"919599319533"})
