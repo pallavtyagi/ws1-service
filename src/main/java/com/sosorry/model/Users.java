@@ -1,9 +1,12 @@
 package com.sosorry.model;
 
 
+
+
 public class Users {
 	
 
+	//private static final Logger logger = Logger.getLogger(Users.class);
 	private String id;
 	private String title;
 	private String userid;
@@ -20,7 +23,14 @@ public class Users {
 	private String deletedDate;
 	private String isDeleted;
 	
-	
+	@Override
+	public String toString()
+	{
+		return "["+this.getId()+","+this.getTitle()+","+this.getUserid()+","+this.getFirstName()+","+this.getLastName()
+				+","+this.getPhone()+","+this.getPhoneVerify()
+				+","+this.getEmail()+","+this.getEmialVerify()+","+this.getCountryCode()+","+this.getCreateDate()
+				+","+this.getLastUpdateDate()+","+this.getDeletedDate()+","+this.getIsDeleted()+"]";
+	}
 	
 	public String getLastUpdateDate() {
 		return lastUpdateDate;
@@ -114,11 +124,6 @@ public class Users {
 	}
 	
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "{title:"+this.getTitle()+", userid:"+this.getUserid()+"}";
-	}
 	
 	
 }

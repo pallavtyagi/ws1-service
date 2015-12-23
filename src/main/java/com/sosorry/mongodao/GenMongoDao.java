@@ -1,6 +1,5 @@
 package com.sosorry.mongodao;
 
-import com.sosorry.model.Users;
 
 
 /**

@@ -2,16 +2,14 @@ package com.sosorry.mongodao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-
-import com.sosorry.model.Images;
 import com.sosorry.model.Videos;
 
 public class VideosDao implements GenMongoDao{
-	//private static final Logger logger = Logger.getLogger(ImagesDao.class);
-	
+	private static final Logger logger = Logger.getLogger(VideosDao.class);
 		private MongoOperations mongoOps;
 	    private static final String VIDEO_COLLECTION = "videos";
 	    private static final String VIDEO_ID = "id";
@@ -23,15 +21,15 @@ public class VideosDao implements GenMongoDao{
 	    }
 		@Override
 		public void create(Object obj) {
-			
+			logger.info("New video added to the repository.");
 			this.mongoOps.insert(obj);
 		}
 
 		@Override
 		public Videos getById(String id) {
 			
-		//	logger.debug("Getting imgage for id - "+id);
-			System.out.println("TEST");
+			logger.debug("Getting video for id - "+id);
+			//System.out.println("TEST");
 			Videos image1 = null;
 			
 			

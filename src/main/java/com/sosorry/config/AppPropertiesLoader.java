@@ -38,6 +38,7 @@ public class AppPropertiesLoader {
 	
 	// loading the properties from the final file...
 	public boolean loadProperties() {
+		logger.info("Loading configurations");
 		boolean flag = false;
 		InputStream fileStream = null;
 		properties = new Properties();
@@ -48,16 +49,15 @@ public class AppPropertiesLoader {
 		try {
 			fileStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 			if (fileStream != null) {
-				System.out.println("Loading properties...");
+				logger.debug("Loading properties.."+propFileName);
 				properties.load(fileStream);
 			} else {
-				throw new FileNotFoundException(
-						"Property File not found - " + propFileName);
+				throw new FileNotFoundException("Property File not found - " + propFileName);
 			}
 
 			for (Entry<Object, Object> keySet : properties.entrySet()) {
-				System.out.println(keySet.getKey() + "-->"
-						+ keySet.getValue());
+				//System.out.println(keySet.getKey() + "-->"+ keySet.getValue());
+				logger.debug(keySet.getKey() + "-->"+ keySet.getValue());
 			}
 			flag=true;
 		} catch (IOException e) {

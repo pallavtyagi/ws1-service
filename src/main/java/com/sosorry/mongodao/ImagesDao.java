@@ -2,17 +2,17 @@ package com.sosorry.mongodao;
 
 import java.util.List;
 
+
+import org.apache.log4j.Logger;
 //import org.apache.log4j.Logger;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-
 import com.sosorry.model.Images;
 
 public class ImagesDao implements GenMongoDao{
 
-	//private static final Logger logger = Logger.getLogger(ImagesDao.class);
-	
+	private static final Logger logger = Logger.getLogger(ImagesDao.class);
 	private MongoOperations mongoOps;
     private static final String IMAGE_COLLECION = "images";
     private static final String IMAGE_ID = "id";
@@ -31,7 +31,7 @@ public class ImagesDao implements GenMongoDao{
 	@Override
 	public Images getById(String id) {
 		
-	//	logger.debug("Getting imgage for id - "+id);
+		logger.debug("Getting imgage for id - "+id);
 		System.out.println("TEST");
 		Images image1 = null;
 		
@@ -56,7 +56,7 @@ public class ImagesDao implements GenMongoDao{
 	
 	public List<Images> getImages()
 	{
-		//logger.debug("get all images... ");
+		logger.debug("sending all images data. ");
 		return this.mongoOps.findAll(Images.class);
 	}
 

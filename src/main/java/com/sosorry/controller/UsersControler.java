@@ -1,14 +1,7 @@
 package com.sosorry.controller;
 
 import java.util.Date;
-
-
-
-
-
-
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -17,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.sosorry.config.AppPropertiesLoader;
 import com.sosorry.config.DBConfigurations;
 import com.sosorry.config.UriConstants;
@@ -27,8 +19,7 @@ import com.sosorry.mongodao.UserDao;
 @Controller
 public class UsersControler {
 
-	// private static final Logger logger =
-	// LoggerFactory.getLogger(UsersControler.class);
+	private static final Logger logger = Logger.getLogger(UsersControler.class);
 
 	UserDao userDao;
 	private boolean isInit = false;
@@ -99,6 +90,7 @@ public class UsersControler {
 	 */
 	private void init() {
 
+		logger.info("local init called NEED TO UPDATE IT TO APPCONFIG DATA. TODO");
 		ctx = new AnnotationConfigApplicationContext(DBConfigurations.class);
 		userDao = ctx.getBean(UserDao.class);
 		if (AppPropertiesLoader.getInstance().getConfigs() == null)

@@ -1,8 +1,9 @@
 package com.sosorry.model;
 
+
 public class Images {
 	
-	
+	//private static final Logger logger = Logger.getLogger(Images.class);
 	private String id;
 	private String name;
 	private String url;
@@ -12,6 +13,13 @@ public class Images {
 	private String updatedDate;
 	private String updateBy;
 	private String updateChannel;
+	
+	@Override
+	public String toString()
+	{
+		return "["+this.getId()+","+this.getName()+","+this.getUrl()+","+this.getTip()+","+this.getDescription()+","+this.getCreatedDate()+","+this.getUpdatedDate()
+				+","+this.getUpdateBy()+","+this.getUpdateChannel()+"]";
+	}
 	public String getId() {
 		return id;
 	}
@@ -66,6 +74,7 @@ public class Images {
 	public void setUpdateChannel(String updateChannel) {
 		this.updateChannel = updateChannel;
 	}
+	
 	
 	
 
