@@ -11,6 +11,8 @@ public class UriConstants {
 	
 	public static final String GET_IMAGE_BY_ID ="/images/{imageid}";
 	public static final String GET_IMAGES ="/images";
+	public static final String POST_CREATE_IMAGES = "/images/create";
+	
 	
 	public static final String GET_VIDEOS ="/videos";
 	

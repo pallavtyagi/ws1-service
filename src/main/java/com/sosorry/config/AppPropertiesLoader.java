@@ -7,11 +7,11 @@ import java.io.InputStream;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
-import java.util.logging.Level;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
@@ -46,23 +46,20 @@ public class AppPropertiesLoader {
 		String propFileName="current.properties";
 		logger.info( "Property File - "+propFileName+" Loaded!!!");
 		try {
-			if (propFileName != null) {
-				fileStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-				if (fileStream != null) {
-					System.out.println("Loading properties...");
-					properties.load(fileStream);
-				} else {
-					throw new FileNotFoundException(
-							"Property File not found - " + propFileName);
-				}
+			fileStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+			if (fileStream != null) {
+				System.out.println("Loading properties...");
+				properties.load(fileStream);
+			} else {
+				throw new FileNotFoundException(
+						"Property File not found - " + propFileName);
+			}
 
-				for (Entry<Object, Object> keySet : properties.entrySet()) {
-					System.out.println(keySet.getKey() + "-->"
-							+ keySet.getValue());
-				}
-				flag=true;
-			} else
-				logger.info("System not configured Properly and may show wiered symptoms");
+			for (Entry<Object, Object> keySet : properties.entrySet()) {
+				System.out.println(keySet.getKey() + "-->"
+						+ keySet.getValue());
+			}
+			flag=true;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
