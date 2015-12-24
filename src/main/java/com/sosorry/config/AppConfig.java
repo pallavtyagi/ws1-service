@@ -1,14 +1,22 @@
 package com.sosorry.config;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
+import com.sosorry.controller.LoggingAspect;
 import com.sosorry.mongodao.ImagesDao;
 import com.sosorry.mongodao.UserDao;
 import com.sosorry.mongodao.VideosDao;
 
 
+@Component
+@ComponentScan(value="com.sosorry.config")
 public class AppConfig {
 
 	
@@ -38,7 +46,7 @@ public class AppConfig {
 	
 	public static void init() {
 
-		logger.info("application level configurtion intialize.");
+		//logger.info("application level configurtion intialize.");
 		ctx = new AnnotationConfigApplicationContext(DBConfigurations.class);
 		userDao = ctx.getBean(UserDao.class);
 		imageDao = ctx.getBean(ImagesDao.class);
@@ -67,5 +75,13 @@ public class AppConfig {
 		return videoDao;
 	}
 
+	
+	@Bean(name="logginAspect")
+	@Autowired
+	@Required
+	public LoggingAspect getLoggingAspect()
+	{
+		return new LoggingAspect();
+	}
 }
 
