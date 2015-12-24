@@ -4,22 +4,29 @@ package com.sosorry.controller;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.sosorry.config.AppConfig;
 import com.sosorry.config.UriConstants;
 import com.sosorry.model.Images;
 import com.sosorry.model.Videos;
+import com.sosorry.mongodao.ImagesDao;
 
 @Controller
+@EnableWebMvc
 public class MediaControler {
 	
 
+	@Autowired(required=true)
+	private ImagesDao imagesDao;
+	
 	private static final Logger logger = Logger.getLogger(MediaControler.class);
 	
 	@RequestMapping(value = UriConstants.GET_IMAGE_BY_ID, method = RequestMethod.GET)
@@ -34,7 +41,8 @@ public class MediaControler {
     public @ResponseBody List<Images> getImages()
     {
 		logger.debug("getImages called");
-		return AppConfig.getInstance().getImageDao().getImages();
+		//return AppConfig.getInstance().getImageDao().getImages();
+		return imagesDao.getImages();
     }
 	
 	@RequestMapping(value=UriConstants.GET_VIDEOS, method=RequestMethod.GET)

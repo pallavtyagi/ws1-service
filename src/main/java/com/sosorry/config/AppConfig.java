@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
-import com.sosorry.controller.LoggingAspect;
+import com.sosorry.config.aop.logger.LoggingAspect;
 import com.sosorry.mongodao.ImagesDao;
 import com.sosorry.mongodao.UserDao;
 import com.sosorry.mongodao.VideosDao;
 
 
-@Component
-@ComponentScan(value="com.sosorry.config")
+//@Component
+//@ComponentScan(value="com.sosorry.config")
 public class AppConfig {
 
 	
@@ -34,7 +34,7 @@ public class AppConfig {
 	
 	private  AppConfig()
 	{
-		init();
+		//init();
 	}
 	
 	public static AppConfig getInstance()
@@ -76,12 +76,12 @@ public class AppConfig {
 	}
 
 	
-	@Bean(name="logginAspect")
+	/*@Bean(name="logginAspect")
 	@Autowired
 	@Required
 	public LoggingAspect getLoggingAspect()
 	{
 		return new LoggingAspect();
-	}
+	}*/
 }
 
