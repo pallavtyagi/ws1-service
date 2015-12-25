@@ -2,13 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:security="http://www.springframework.org/schema/security"
-
+    xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/security
-http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+http://www.springframework.org/schema/security/spring-security-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
@@ -24,5 +26,10 @@ http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
+	<!-- <bean id="logAspect" class="com.sosorry.config.aop.logger.LoggingAspect" /> -->
+	<aop:aspectj-autoproxy>
+		<aop:include name="LoggingAspect"/>
+		<aop:include name="MediaControler"/>
+	</aop:aspectj-autoproxy>
 
 </beans>
