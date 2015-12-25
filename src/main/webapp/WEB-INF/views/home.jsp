@@ -1,14 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>ws1-services</title>
 </head>
 <body>
 <h1>
-	Hello world!  
+	Welcome <sec:authentication property="principal.username" />
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<P></P>
 </body>
 </html>

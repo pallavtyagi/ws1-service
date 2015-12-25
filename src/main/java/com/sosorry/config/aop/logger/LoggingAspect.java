@@ -8,13 +8,13 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 
-//@Aspect
-//@Component
+@Aspect
+@Component
 public class LoggingAspect {
 	
 	Logger logger = Logger.getLogger(getClass());
 	
-//	@Around("execution(get*)")
+	@Around("execution(get*)")
 	public void logArround(JoinPoint joinPoint)
 	{
 		String methodName = joinPoint.getTarget().getClass().getName()+":"+joinPoint.getSignature().getName();

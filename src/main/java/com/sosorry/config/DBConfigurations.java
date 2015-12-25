@@ -2,7 +2,6 @@ package com.sosorry.config;
 
 //import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +12,6 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import com.sosorry.mongodao.ImagesDao;
 import com.sosorry.mongodao.UserDao;
 import com.sosorry.mongodao.VideosDao;
@@ -27,7 +25,7 @@ public class DBConfigurations {
 	//private static final Logger logger = Logger.getLogger(DBConfigurations.class);
 
 	@Bean
-	@Autowired(required=true)
+	@Autowired
 	public MongoDbFactory getMongoDbFactory() throws Exception {
 		return new SimpleMongoDbFactory(new MongoClient("localhost", 9999),	"shoutservice");
 		// return new SimpleMongoDbFactory(new MongoClient(new
@@ -37,13 +35,13 @@ public class DBConfigurations {
 	}
 
 	@Bean
-	@Autowired(required=true)
+	@Autowired
 	public MongoTemplate getMongoTemplate() throws Exception {
 		return new MongoTemplate(getMongoDbFactory());
 	}
 
 	@Bean
-	@Autowired(required=true)
+	@Autowired
 	public UserDao getUser() {
 		UserDao userDao = null;
 		try {
@@ -56,7 +54,7 @@ public class DBConfigurations {
 	}
 
 	@Bean(name="imagesDao")
-	@Autowired(required=true)
+	@Autowired
 	public ImagesDao getImages() {
 		ImagesDao imagesDao = null;
 		try {
@@ -69,7 +67,7 @@ public class DBConfigurations {
 	}
 
 	@Bean
-	@Autowired(required=true)
+	@Autowired
 	public VideosDao getVideos() {
 		VideosDao videosDao = null;
 		try {
