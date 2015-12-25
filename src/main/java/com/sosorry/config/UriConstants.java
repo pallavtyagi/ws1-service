@@ -2,6 +2,8 @@ package com.sosorry.config;
 
 public class UriConstants {
 	
+	public static final String WELCOME="/";
+	
 	public static final String GET_USER_BY_ID = "/user/{userid}";
 	public static final String GET_USERS = "/users";
 	public static final String POST_CREATE_USER = "/user/create";
