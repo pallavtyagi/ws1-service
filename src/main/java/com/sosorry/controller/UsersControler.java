@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sosorry.annotations.ServiceLogger;
 import com.sosorry.config.UriConstants;
 import com.sosorry.model.Users;
 import com.sosorry.mongodao.UserDao;
@@ -29,6 +30,7 @@ public class UsersControler {
 
 	//private ApplicationContext ctx;
 
+	@ServiceLogger
 	@RequestMapping(value = UriConstants.GET_USER_BY_ID, method = RequestMethod.GET)
 	public @ResponseBody Users getUsersById(@PathVariable String userid) {
 		return userDao.getById(userid);

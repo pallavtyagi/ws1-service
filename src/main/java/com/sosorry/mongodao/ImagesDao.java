@@ -3,12 +3,16 @@ package com.sosorry.mongodao;
 import java.util.List;
 
 
+
 import org.apache.log4j.Logger;
 //import org.apache.log4j.Logger;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
+
 import com.sosorry.model.Images;
+
 
 public class ImagesDao implements GenMongoDao{
 
