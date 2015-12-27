@@ -16,9 +16,9 @@
 	<context:annotation-config />
 
 	<!-- Enables Auto aop proxy -->
-	<aop:aspectj-autoproxy proxy-target-class="true">
+    <aop:aspectj-autoproxy proxy-target-class="true">
 		<aop:include name="loggingAspect" />
-	</aop:aspectj-autoproxy>
+	</aop:aspectj-autoproxy>  
 
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 

@@ -27,9 +27,5 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<!-- <bean id="logAspect" class="com.sosorry.config.aop.logger.LoggingAspect" /> -->
-	<aop:aspectj-autoproxy>
-		<aop:include name="LoggingAspect"/>
-		<aop:include name="MediaControler"/>
-	</aop:aspectj-autoproxy>
 
 </beans>
